@@ -1,0 +1,135 @@
+<style type="text/css">
+a
+{
+ color:#CE168E;
+}
+A:link
+{ text-decoration: underline; color:#CE168E; }
+A:visited
+{ text-decoration: underline; color:#CE168E; }
+A:active
+{ text-decoration: underline; color:#EAEB21; }
+A:hover
+{ text-decoration: underline; color:#EAEB21; }
+
+
+h1 {font-family: verdana;
+color: #000000; } 
+
+p {font-family: verdana; 
+color: #000000; 
+} 
+
+body 
+{ background: #76C3AE;
+
+font-family: verdana; 
+color: #000000 ; 
+letter-spacing: 0pt; 
+font-weight: normal;
+font-size: 12 pt; 
+
+
+scrollbar-face-color : #CE168E; 
+scrollbar-highlight-color : #76C3AE; 
+scrollbar-3dlight-color : #76C3AE; 
+scrollbar-shadow-color : #76C3AE; 
+scrollbar-darkshadow-color : #76C3AE;
+scrollbar-track-color : #76C3AE; 
+scrollbar-arrow-color : #EAEB21; 
+
+margin-top: 0;
+margin-bottom: 0;
+margin-left: 0;
+margin-right: 0; 
+padding-top: 0;
+padding-bottom: 0;
+padding-left: 0;
+padding-right: 0; 
+}
+
+td
+{ font-family: verdana; 
+color: #000000;
+padding: .2cm; 
+}
+
+input, textarea, select
+{ background: #EAEB21;
+font-family: verdana; 
+color: #000000; 
+border-style: solid;
+border-color: #CE168E;
+border-width: 2px;  }
+
+#body {
+    margin-left: 50px;
+}
+
+
+#menu {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+#purplebar {
+    height: 25px;
+    background-color: #764B92
+}
+
+#menu ul /* Primary and secondary links */ {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+
+#menu li /* A simple method to get navigation links to appear in one line. */ {
+/*  float: left; LTR */
+    display: inline;
+    padding: 0 20px 0 0; /* LTR */
+    color: #CE168E;
+    font-weight: bold;
+}
+
+
+#menu li a {
+    text-decoration: underline;
+    color: #CE168E;
+}
+
+#menu li a:hover {
+    color: #EAEB21;
+    text-decoration: underline;
+}
+
+#content {
+    padding: 10px;
+}
+
+
+#menu li a.current {
+    color: #CE168E;
+    text-decoration: underline;
+}
+
+
+#songlist {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    background-color: #CE168E;
+    font-family: verdana; 
+    color: #EAEB21;
+}
+
+#horizontalLine {
+  height: 2px;
+  background-color: #EAEB21;
+}
+
+
+
+</style>
+

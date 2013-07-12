@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+You are currently logged in as: <b>{{ u.username }}</b><br>
+
+<h1>Song Details</h1>
+<table>
+	<tr>
+		<td><b>Title:</b></td>
+		<td>{{ song.title }}</td>
+	</tr>
+	<tr>
+		<td><b>Featuring:</b></td>
+		<td>
+		{% for v in song.vocaloid_set.all %} 
+			{{ v.name }}<br>
+		{% endfor %}
+		</td>
+	</tr>
+	<tr>
+		<td><b>Artist:</b></td>
+		<td>{{ song.artist }}</td>
+	</tr>
+	<tr>
+		<td><b>Album:</b></td>
+		<td>{{ song.album }}</td>
+	</tr>
+	<tr>
+		<td><b>Music Video:</b></td>
+		<td><a href="{{ song.musicVideoLink }}">{{ song.musicVideoLink }}</a></td>
+	</tr>
+	<tr>
+		<td><b>Lyrics:</b></td>
+		<td>
+		<div id="horizontalLine"></div><br>
+		{% for l in song.lyric_set.all %}
+		{{ l.text|linebreaksbr }}
+		<br><br><div id="horizontalLine"></div><br>
+		{% endfor %}
+		</td>
+	</tr>
+</table>
+
+{% endblock %}

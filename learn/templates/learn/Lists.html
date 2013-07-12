@@ -1,0 +1,34 @@
+{% for l in listOfLists %}
+	
+	<br><div id="songlist">{{ l.name }}</div>
+	<table border="0">
+		{% for s in l.song_set.all %}
+		<tr>
+		<td>{{ s.title }}</td>
+		<td><a href="{% url 'view' u.id s.id %}"> View Song Details</a></td>
+		<td><a href="{% url 'edit' u.id s.id %}"> Edit Song Details</a></td>
+		<td> Move to: </td>
+		<td>
+		<form name="move" method="POST" ACTION=URI>
+
+		<!-- have to name the dropdown lists after the song id's to guarantee that they are unique. -->
+		<select name="moveDropDownList{{ s.id }}" id="moveDropDownList{{ s.id }}">
+		<option value="">Select a list...</option>
+		<option value={{ LearningID }}>Learning</option>
+		<option value={{ PlanToLearnID }}>Plan to Learn</option>
+		<option value={{ LearnedID }}>Learned</option>
+		<option value={{ DroppedID }}>Dropped</option>
+		</select>
+		<input type="button" onClick="movesong({{ u.id }}, {{ s.id }}, {{ l.id }}, getMoveDropDownListValue({{ s.id }}) )" value="Move"/>
+		<a href="#" onClick="deletesong({{ u.id }}, {{ s.id }})">Delete</a>
+		</form>
+		</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+{% endfor %}
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link rel="stylesheet" href="/learn/static/style.css" />
+    <title>Learn Through Music!</title>
+    <script src="/learn/static/move.js"></script>
+    <script src="/learn/static/jquery-2.0.2.js"></script>
+</head>
+
+<body>
+
+
+  <div id="title">
+    <img src="/learn/static/logo.png">
+  </div>
+
+  <div id="purplebar">
+  </div>
+
+  <div id="menu">
+    <ul>
+      <li><a href="/learn/home/">Home</a></li>
+      <li><a href="/learn/add/">Add</a></li>
+      <li><a href="/learn/auth/logout">Logout</a></li>
+    </ul>
+  </div>
+
+
+
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+</body>
+</html>

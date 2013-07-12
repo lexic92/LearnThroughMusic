@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% block content %}
+
+You are currently logged in as: <b>{{ u.username }}</b><br>
+
+<h1>Edit song:</h1>
+<p><i>To add multiple vocaloids/lyrics, please add one at a time and come back to this "edit" page to add another.</i></p>
+<br>
+
+<form action="{% url 'edit' u.id s.id %}" method="post">
+{% csrf_token %}
+
+<table>
+
+<tr>
+<td colspan="2">
+<div id="horizontalLine"></div><br>
+</td>
+</tr>
+
+
+
+ <tr>
+
+  <td>
+    Title:
+  </td>
+
+  <td>
+  <table><tr><td>
+    <input type="text" name="title" id="id_title" value="{{ s.title }}" />
+  </td></tr></table>
+  </td>
+
+ </tr>
+
+
+ <tr>
+
+  <td>
+   Featuring:
+  </td>
+
+  <td>
+   {% if s.vocaloid_set.all %}
+   <table>
+   {% for v in s.vocaloid_set.all %}
+   <tr>
+    <td>
+     <input type="text" name="featuring{{ forloop.counter }}" id="id_featuring{{ forloop.counter }}" value="{{ v.name }}"/>
+    </td>
+    <td>
+     <label for="id_delete_featuring{{ forloop.counter }}">Delete:</label>
+     <input type="checkbox" name="id_delete_featuring{{ forloop.counter }}" id="id_delete_featuring{{ forloop.counter }}"/>
+    </td>
+   </tr>
+   {% endfor %}
+   </table>
+   {% else %}
+   Currently no one
+   {% endif %}
+  </td>
+
+ </tr>
+
+
+
+
+ <tr>
+
+  <td>
+  Add a vocaloid:
+   <br>(leave blank to not add any vocaloids)
+  </td>
+
+  <td>
+   <table><tr><td>
+   <input type="text" name="featuring" id="id_featuring" value="" />
+  </td></tr></table>
+  </td>
+
+ </tr>
+
+
+
+ <tr>
+
+  <td>
+   Artist:
+  </td>
+
+  <td>
+   <table><tr><td>
+   <input type="text" name="artist" id="id_artist" value="{{ s.artist }}"/>
+  </td></tr></table>
+  </td>
+
+ </tr>
+
+
+
+ <tr>
+
+  <td>
+   Album:
+  </td>
+
+  <td>
+   <table><tr><td>
+   <input type="text" name="album" id="id_album" value="{{ s.album }}"/>
+  </td></tr></table>
+  </td>
+
+ </tr>
+
+
+
+ <tr>
+
+  <td>
+   Music Video Link:
+  </td>
+
+  <td>
+   <table><tr><td>
+   <input type="text" name="musicVideoLink" id="id_musicVideoLink" value="{{ s.musicVideoLink }}"/>
+  </td></tr></table>
+  </td>
+
+ </tr>
+
+
+
+ <tr>
+
+  <td>
+   Lyrics:
+  </td>
+
+  <td>
+    {% if s.lyric_set.all %}
+   <table>
+    {% for l in s.lyric_set.all %}
+    <tr>
+      <td>
+       <textarea name="lyrics{{ forloop.counter }}" id="id_lyrics{{ forloop.counter }}" rows="5" cols="30">{{ l.text }}</textarea>
+      </td>
+      <td>
+       <label for="id_delete_lyrics{{ forloop.counter }}">Delete:</label>
+       <input type="checkbox" name="id_delete_lyrics{{ forloop.counter }}" id="id_delete_lyrics{{ forloop.counter }}"/>
+      </td>
+    </tr>
+   {% endfor %}
+   </table>
+   {% else %}
+   Currently no lyrics.
+   {% endif %}
+  </td>
+
+ </tr>
+
+
+
+
+
+ <tr>
+
+  <td>
+   Add lyrics:
+ <br>(leave blank to not add any lyrics)
+  </td>
+
+  <td>
+   <table><tr><td>
+   <textarea name="lyrics" id="id_lyrics" rows="5" cols="30"></textarea>
+   </td></tr></table>
+  </td>
+
+ </tr>
+
+
+<tr>
+<td colspan="2">
+<div id="horizontalLine"></div><br>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Click to save all changes:
+</td>
+<td>
+  <table><tr><td>
+  <input type="submit" value="Save" />
+  </td></tr></table>
+</td>
+</tr>
+
+
+</table>
+
+ </form>
+
+
+{% endblock %}
+
